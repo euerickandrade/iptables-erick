@@ -30,7 +30,7 @@ iptables -A OUTPUT -o lo -j ACCEPT
 #---------------------- Rede Local <-> Internet ----------------------
 
 #Habilitar Acesso via SSH da Rede Local para o Firewall
-echo "4 - Configurando o SSH, de qualquer IP"
+echo "4 - Aceitando Conexao SSH apenas do seu IP"
 iptables -A INPUT -p tcp --dport 22 -i ens18 -s SEU-IP -j ACCEPT 
 iptables -A OUTPUT -p tcp --sport 22 -o ens18 -d SEU-IP -j ACCEPT 
 
