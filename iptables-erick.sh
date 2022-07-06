@@ -6,8 +6,9 @@
 
 #---------------------- Configuracoes Gerais ----------------------
 
-echo "---INICIANDO AS CONFIGURAÇÕES GERAIS DO IPTABLES---"
-echo "...."
+echo -e "---INICIANDO AS CONFIGURAÇÕES GERAIS DO IPTABLES---\n"
+echo -e "Se o Iptables/Terminal travar ou aparecer uma mensagem de erro em alguma linha, verifique as alterações feitas no script, pois pode ter ocorrido algum erro grave.\n"
+echo -e "....\n"
 
 #Comandos para zerar completamente o iptables - limpando as regras de cada tabela
 echo "1 - Resetando o IPtables, limpando as regras de todas as tabelas..."
@@ -51,11 +52,16 @@ iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
 iptables -A INPUT -p tcp --sport 443 -j ACCEPT
 
 #Permitir a saida para web via HTTP/80
-echo "8 - Permitindo a saida HTTP do Firewall para Internet" 
+echo -e "8 - Permitindo a saida HTTP do Firewall para Internet\n" 
 iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp --sport 80 -j ACCEPT
 
 #---------------------- Firewall <-> Rede Local ----------------------
 
-echo "...."
-echo "CONFIGURAÇÕES DO FIREWALL FINALIZADAS COM SUCESSO"
+echo -e "....\n"
+echo -e "CONFIGURAÇÕES DO FIREWALL FINALIZADAS COM SUCESSO\n"
+echo -e "EXIBINDO TODAS AS REGRAS QUE FORAM CRIADAS E/OU ATUALIZADAS\n"
+
+iptables -nvL --line-numbers
+
+#---------------------- Final do Firewall ----------------------
