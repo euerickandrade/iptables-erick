@@ -31,8 +31,13 @@ iptables -A OUTPUT -o lo -j ACCEPT
 
 #Habilitar Acesso via SSH da Rede Local para o Firewall
 echo "4 - Configurando o SSH, de qualquer IP"
-iptables -A INPUT -p tcp --dport 22 -i ens18 -s SEU-IP -j ACCEPT
-iptables -A OUTPUT -p tcp --sport 22 -o ens18 -d SEU-IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -i ens18 -s SEU-IP -j ACCEPT 
+iptables -A OUTPUT -p tcp --sport 22 -o ens18 -d SEU-IP -j ACCEPT 
+
+#Registrando em LOG todas as solicitações de conexao SSH
+echo "4.1 - Criando regra para registrar solicitacao de SSH de IP NAO PERMITIDO"
+iptables -A INPUT -p tcp --dport 22 -j LOG --log-prefix "SOLIC SSH IP NAO PERMITIDO "
+iptables -A OUTPUT -p tcp --sport 22 -j LOG --log-prefix "RESP SSH IP NAO PERMITIDO "
 
 #---------------------- Firewall -> Internet ----------------------
 
