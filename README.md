@@ -9,8 +9,8 @@ O arquivo de configuração é um .sh, para executar com sucesso é necessário 
 Passos:
 
 1 - Conceda a permissão para o arquivo.
-# chmod +x iptables-erick.sh
+chmod +x iptables-erick.sh
 
 2 - Execute o arquivo para que ele realize toda a configuração do Firewall.
-# ./iptables-erick.sh
+./iptables-erick.sh
 
