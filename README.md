@@ -1,6 +1,6 @@
-Autor: Erick Andrade
-Site: erickandrade.com.br
-E-mail: erick@erickandrade.com.br
+Autor: Erick Andrade  
+Site: erickandrade.com.br  
+E-mail: erick@erickandrade.com.br  
 
 Descrição: Script baseado em estudos de cursos e artigos na internet. O Firewall IPTABLES está com regras básicas de segurança, para uso em servidores simples. Para mais informações sobre regras, consulte a documentação oficial.
 
